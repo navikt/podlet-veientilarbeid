@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/podlet-veientilarbeid:${{ github.sha }}
 
 jobs:
   build:
@@ -19,3 +19,5 @@ jobs:
       - name: Build docker image
         run: |
           docker build -t $IMAGE .
+          docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
+          docker push $IMAGE
