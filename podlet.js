@@ -1,7 +1,7 @@
 const express = require("express");
 const Podlet = require("@podium/podlet");
 const fs = require("fs");
-const port = 7100;
+const port = process.env.PORT || 7100;
 const selfUrl = `http://localhost:${port}`;
 const name = "veientilarbeid";
 let rawdata = fs.readFileSync("build/asset-manifest.json");
@@ -36,5 +36,7 @@ app.get(podlet.content(), (req, res) => {
 app.get(podlet.manifest(), (req, res) => {
   res.status(200).send(podlet);
 });
+
 //start the app at port
+console.log(`Starting on port ${port}`);
 app.listen(port);
