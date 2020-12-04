@@ -13,17 +13,20 @@
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "12.5.0",
     "@types/jest": "26.0.16",
-    "typescript": "4.1.2",
     "@types/node": "12.19.8",
     "@types/react": "16.14.2",
     "@types/react-dom": "16.9.10",
-    "prettier": "2.2.1"
+    "husky": "4.3.0",
+    "lint-staged": "10.5.2",
+    "prettier": "2.2.1",
+    "typescript": "4.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
+    "typeCheck": "tsc"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +48,14 @@
   },
   "prettier": {
     "printWidth": 120
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run typeCheck && npm run test-ci"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,md,ts,tsx}": "prettier --write"
   }
 }
