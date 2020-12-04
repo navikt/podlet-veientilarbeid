@@ -103,6 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+# Create react app
+build/
+
 # Editors
 .idea/
 .vscode/
