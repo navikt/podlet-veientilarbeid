@@ -6,7 +6,7 @@ const basePath = process.env.BASE_PATH || "/arbeid/podlet-veientilarbeid";
 const port = process.env.PORT || 7100;
 const isDevelopmentEnv = true;
 
-const name = "podlet-veientilarbeid";
+const podletName = "podlet-veientilarbeid";
 
 let rawdata = fs.readFileSync("build/asset-manifest.json");
 let assets = JSON.parse(rawdata);
@@ -14,7 +14,7 @@ let assets = JSON.parse(rawdata);
 const app = express();
 
 const podlet = new Podlet({
-  name: name,
+  name: podletName,
   version: "1.0.0",
   pathname: basePath,
   development: isDevelopmentEnv,
@@ -36,7 +36,7 @@ app.use(`${basePath}/static`, express.static("./build/static"));
 app.use(`${basePath}/assets`, express.static("./build/"));
 
 app.get(podlet.content(), (req, res) => {
-  res.status(200).podiumSend(`<div id="${name}"></div>`);
+  res.status(200).podiumSend(`<div id="${podletName}"></div>`);
 });
 
 // generate the podlet manifest

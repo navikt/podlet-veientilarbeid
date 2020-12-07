@@ -30,7 +30,7 @@
     "test-ci": "CI=true react-scripts test",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "typeCheck": "tsc",
-    "podlet": "node podlet.js"
+    "podlet": "node podlet.ts"
   },
   "eslintConfig": {
     "extends": [
