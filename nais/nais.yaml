@@ -39,6 +39,8 @@ spec:
     inbound:
       rules:
         - application: arbeid.dev.intern.nav.no
+      external:
+        - host: www.dev.nav.no
     outbound:
       rules:
         - application: arbeid.dev.intern.nav.no
