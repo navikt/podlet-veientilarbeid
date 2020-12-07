@@ -16,18 +16,16 @@ const app = express();
 const podlet = new Podlet({
   name: name,
   version: "1.0.0",
-  pathname: basePath,
+  pathname: "/",
   development: isDevelopmentEnv,
   logger: console,
-  content: basePath,
-  manifest: `${basePath}/manifest.json`,
 });
 
 assets.entrypoints.forEach((element, index) => {
   if (element.indexOf(".css") !== -1) {
-    podlet.css({ value: `${basePath}/${element}` });
+    podlet.css({ value: `/${element}` });
   } else if (element.indexOf(".js") !== -1) {
-    podlet.js({ value: `${basePath}/${element}`, defer: true });
+    podlet.js({ value: `/${element}`, defer: true });
   }
 });
 
@@ -35,12 +33,12 @@ app.use(podlet.middleware());
 app.use(`${basePath}/static`, express.static("./build/static"));
 app.use(`${basePath}/assets`, express.static("./build/"));
 
-app.get(podlet.content(), (req, res) => {
+app.get(`${basePath}${podlet.content()}`, (req, res) => {
   res.status(200).podiumSend(`<div id="${name}"></div>`);
 });
 
 // generate the podlet manifest
-app.get(podlet.manifest(), (req, res) => {
+app.get(`${basePath}${podlet.manifest()}`, (req, res) => {
   res.status(200).send(podlet);
 });
 
