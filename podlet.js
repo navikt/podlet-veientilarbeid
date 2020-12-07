@@ -35,6 +35,7 @@ app.use(`${basePath}/assets`, express.static("./build/"));
 
 app.get(`${basePath}${podlet.content()}`, (req, res) => {
   res.status(200).podiumSend(`<div id="${podletName}"></div>`);
+});
 
 // generate the podlet manifest
 app.get(`${basePath}${podlet.manifest()}`, (req, res) => {
