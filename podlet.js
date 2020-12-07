@@ -6,7 +6,6 @@ const basePath = process.env.BASE_PATH || "/arbeid/podlet-veientilarbeid";
 const port = process.env.PORT || 7100;
 const isDevelopmentEnv = true;
 
-const selfUrl = `http://localhost:${port}${basePath}`;
 const name = "podlet-veientilarbeid";
 
 let rawdata = fs.readFileSync("build/asset-manifest.json");
@@ -26,9 +25,9 @@ const podlet = new Podlet({
 
 assets.entrypoints.forEach((element, index) => {
   if (element.indexOf(".css") !== -1) {
-    podlet.css({ value: `${selfUrl}/${element}` });
+    podlet.css({ value: `${basePath}/${element}` });
   } else if (element.indexOf(".js") !== -1) {
-    podlet.js({ value: `${selfUrl}/${element}`, defer: true });
+    podlet.js({ value: `${basePath}/${element}`, defer: true });
   }
 });
 
