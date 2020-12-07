@@ -32,10 +32,17 @@ app.use("/assets", express.static("./build/"));
 app.get(podlet.content(), (req, res) => {
   res.status(200).podiumSend(`<div id="${name}"></div>`);
 });
+
 // generate the podlet manifest
 app.get(podlet.manifest(), (req, res) => {
   res.status(200).send(podlet);
 });
+
+// isAlive route
+app.get("/isAlive", (req, res) => res.status(200).end());
+
+// isReady route
+app.get("/isReady", (req, res) => res.status(200).end());
 
 //start the app at port
 console.log(`Starting on port ${port}`);
