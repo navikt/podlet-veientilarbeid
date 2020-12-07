@@ -10,12 +10,12 @@ spec:
   image: {{image}}
   port: 7100
   liveness:
-    path: /isAlive
+    path: {{base_path}}/isAlive
     timeout: 1
     periodSeconds: 5
     failureThreshold: 10
   readiness:
-    path: /isReady
+    path: {{base_path}}/isReady
     timeout: 1
   prometheus:
     enabled: false
