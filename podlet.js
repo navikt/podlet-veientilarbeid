@@ -49,5 +49,9 @@ app.get(podlet.manifest(), (req, res) => {
 app.get(`${basePath}/isAlive|isReady`, (req, res) => res.sendStatus(200));
 
 //start the app at port
-console.log(`Starting on port ${port}`);
+
+console.log(JSON.stringify(podlet, undefined, 2));
+console.log(`Content path ${podlet.content()}`);
+console.log(`Manifest path ${podlet.manifest()}`);
+console.log(`Starting on port ${port} with basePath ${basePath}`);
 app.listen(port);
