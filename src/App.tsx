@@ -1,17 +1,19 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Panel from "nav-frontend-paneler";
+import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 
 function App() {
+  function greeting() {
+    return new Date().getTime() > 12 ? "God ettermiddag" : "God formiddag";
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>podlet-veientilarbeid er kjempekul!</p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+    <div className="podlet-veientilarbeid">
+      <Panel border>
+        <Systemtittel>{greeting()}</Systemtittel>
+        <Normaltekst>Du har nå kommet deg inn i NAVs nye microfrontend.</Normaltekst>
+      </Panel>
     </div>
   );
 }
