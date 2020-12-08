@@ -13,10 +13,13 @@ let assets = JSON.parse(rawdata);
 
 const app = express();
 
+const podletVersion = "1.0.0";
+
 const podlet = new Podlet({
   name: podletName,
-  version: "1.0.0",
+  version: podletVersion,
   pathname: "/",
+  fallback: "/fallback",
   development: isDevelopmentEnv,
   logger: console,
 });
@@ -35,6 +38,10 @@ app.use(`${basePath}/assets`, express.static("./build/"));
 
 app.get(`${basePath}${podlet.content()}`, (req, res) => {
   res.status(200).podiumSend(`<div id="${podletName}"></div>`);
+});
+
+app.get(`${basePath}${podlet.fallback()}`, (req, res) => {
+  res.status(200).podiumSend(`<div>Fallback for ${podletName}:${podletVersion}</div>`);
 });
 
 // generate the podlet manifest
