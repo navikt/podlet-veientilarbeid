@@ -5,7 +5,7 @@ import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 
 function App() {
   function greeting() {
-    return new Date().getTime() > 12 ? "God ettermiddag" : "God formiddag";
+    return new Date().getHours() > 12 ? "God ettermiddag" : "God formiddag";
   }
 
   return (
