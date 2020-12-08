@@ -20,15 +20,16 @@ const podlet = new Podlet({
   version: podletVersion,
   pathname: "/",
   fallback: "/fallback",
+  content: "/",
   development: isDevelopmentEnv,
   logger: console,
 });
 
 assets.entrypoints.forEach((element, index) => {
   if (element.indexOf(".css") !== -1) {
-    podlet.css({ value: `/${element}` });
+    podlet.css({ value: `${basePath}/${element}` });
   } else if (element.indexOf(".js") !== -1) {
-    podlet.js({ value: `/${element}`, defer: true });
+    podlet.js({ value: `${basePath}/${element}`, defer: true });
   }
 });
 
