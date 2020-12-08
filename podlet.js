@@ -27,13 +27,15 @@ const podlet = new Podlet({
 
 assets.entrypoints.forEach((element, index) => {
   if (element.indexOf(".css") !== -1) {
-    podlet.css({ value: `${basePath}/${element}` });
+    podlet.css({ value: `/${element}` });
   } else if (element.indexOf(".js") !== -1) {
-    podlet.js({ value: `${basePath}/${element}`, defer: true });
+    podlet.js({ value: `/${element}`, defer: true });
   }
 });
 
 app.use(podlet.middleware());
+app.use("/static", express.static("./build/static"));
+app.use("/assets", express.static("./build/"));
 app.use(`${basePath}/static`, express.static("./build/static"));
 app.use(`${basePath}/assets`, express.static("./build/"));
 
