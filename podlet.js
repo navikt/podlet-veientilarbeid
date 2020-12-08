@@ -13,7 +13,7 @@ let assets = JSON.parse(rawdata);
 
 const app = express();
 
-const podletVersion = "1.0.1";
+const podletVersion = "jeg er en fantastisk versjon æøå";
 
 const podlet = new Podlet({
   name: podletName,
