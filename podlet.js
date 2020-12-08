@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const basePath = process.env.BASE_PATH || "/arbeid/podlet-veientilarbeid";
 const port = process.env.PORT || 7100;
-const podletVersion = process.env.VERSION_HASH || new Date().getTime();
+const podletVersion = process.env.VERSION_HASH || `${new Date().getTime()}`;
 const isDevelopmentEnv = true;
 
 const podletName = "podlet-veientilarbeid";
