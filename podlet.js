@@ -4,6 +4,7 @@ const fs = require("fs");
 
 const basePath = process.env.BASE_PATH || "/arbeid/podlet-veientilarbeid";
 const port = process.env.PORT || 7100;
+const podletVersion = process.env.VERSION_HASH || new Date().getTime();
 const isDevelopmentEnv = true;
 
 const podletName = "podlet-veientilarbeid";
@@ -12,8 +13,6 @@ let rawdata = fs.readFileSync("build/asset-manifest.json");
 let assets = JSON.parse(rawdata);
 
 const app = express();
-
-const podletVersion = "jeg er en fantastisk versjon!";
 
 const podlet = new Podlet({
   name: podletName,
