@@ -2,6 +2,5 @@ app: podlet-veientilarbeid
 namespace: paw
 team: paw
 base_path: "/arbeid/podlet-veientilarbeid"
-ingressess: |
-  ingresses:
-    - https://arbeid.dev.nav.no/arbeid/podlet-veientilarbeid
+ingresses:
+  - https://arbeid.dev.nav.no/arbeid/podlet-veientilarbeid
