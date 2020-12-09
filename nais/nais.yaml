@@ -39,13 +39,6 @@ spec:
     - name: NEXT_PUBLIC_API_URL
       value: {{base_path}}/api
   accessPolicy:
-    inbound:
-      rules:
-        - application: arbeid.dev.intern.nav.no
-      external:
-        - host: www.dev.nav.no
     outbound:
-      rules:
-        - application: arbeid.dev.intern.nav.no
       external:
         - host: api.amplitude.com
