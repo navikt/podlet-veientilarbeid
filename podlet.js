@@ -19,7 +19,6 @@ const podlet = new Podlet({
   version: podletVersion,
   pathname: "/",
   fallback: "/fallback",
-  content: "/",
   development: isDevelopmentEnv,
   logger: console,
 });
