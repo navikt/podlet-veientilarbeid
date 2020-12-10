@@ -37,7 +37,7 @@ app.use("/assets", express.static("./build/"));
 app.use(`${basePath}/static`, express.static("./build/static"));
 app.use(`${basePath}/assets`, express.static("./build/"));
 
-app.get(`${basePath}/mitt-api`, (req, res) => {
+app.get(`${basePath}${podlet.proxy({ target: "/mitt-api", name: "mitt-api" })}`, (req, res) => {
   res.status(200).send({ resultat: "flott resultat" });
 });
 
