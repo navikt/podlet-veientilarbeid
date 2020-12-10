@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import { Systemtittel } from "nav-frontend-typografi";
-import GenerelleFliser from "./dittnav/generelle-fliser";
 
 function App() {
   function getGreeting() {
@@ -18,8 +17,6 @@ function App() {
   return (
     <div className="podlet-veientilarbeid">
       <Systemtittel className={"podlet-veientilarbeid--header"}>{getGreeting()}</Systemtittel>
-
-      <GenerelleFliser />
     </div>
   );
 }
