@@ -37,6 +37,10 @@ app.use("/assets", express.static("./build/"));
 app.use(`${basePath}/static`, express.static("./build/static"));
 app.use(`${basePath}/assets`, express.static("./build/"));
 
+app.get(`${basePath}/mitt-api`, (req, res) => {
+  res.status(200).send({ resultat: "flott resultat" });
+});
+
 app.get(`${basePath}${podlet.content()}`, (req, res) => {
   res.status(200).podiumSend(`<div id="${podletName}"></div>`);
 });
