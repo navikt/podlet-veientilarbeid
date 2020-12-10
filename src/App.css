@@ -1,3 +1,7 @@
 .podlet-veientilarbeid {
   margin: 20px;
 }
+
+.podlet-veientilarbeid .podlet-veientilarbeid--header {
+  margin-bottom: 10px;
+}

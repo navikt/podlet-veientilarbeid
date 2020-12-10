@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import Panel from "nav-frontend-paneler";
-import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
+import { Systemtittel } from "nav-frontend-typografi";
+import GenerelleFliser from "./dittnav/generelle-fliser";
 
 function App() {
   function getGreeting() {
@@ -17,10 +17,9 @@ function App() {
 
   return (
     <div className="podlet-veientilarbeid">
-      <Panel border>
-        <Systemtittel>{getGreeting()}</Systemtittel>
-        <Normaltekst>Du har nå kommet deg inn i NAVs nye microfrontend.</Normaltekst>
-      </Panel>
+      <Systemtittel className={"podlet-veientilarbeid--header"}>{getGreeting()}</Systemtittel>
+
+      <GenerelleFliser />
     </div>
   );
 }
