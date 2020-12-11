@@ -17,7 +17,7 @@ const app = express();
 const podlet = new Podlet({
   name: podletName,
   version: podletVersion,
-  pathname: "/",
+  pathname: basePath,
   fallback: "/fallback",
   development: isDevelopmentEnv,
   logger: console,
@@ -37,8 +37,8 @@ app.use("/assets", express.static("./build/"));
 app.use(`${basePath}/static`, express.static("./build/static"));
 app.use(`${basePath}/assets`, express.static("./build/"));
 
-app.get(`${basePath}${podlet.proxy({ target: "/mitt-api", name: "mitt-api" })}`, (req, res) => {
-  res.status(200).send({ resultat: "flott resultat" });
+app.get(`${basePath}${podlet.proxy({ target: "/api", name: "api" })}`, (req, res) => {
+  res.status(200).send({ resultat: "flott resultat med basepath" });
 });
 
 app.get(`${basePath}${podlet.content()}`, (req, res) => {
@@ -56,8 +56,6 @@ app.get(`${basePath}${podlet.manifest()}`, (req, res) => {
 
 // isAlive/isReady route for Nais
 app.get(`${basePath}/isAlive|isReady`, (req, res) => res.sendStatus(200));
-
-//start the app at port
 
 console.log(JSON.stringify(podlet, undefined, 2));
 console.log(`Content path ${podlet.content()}`);
