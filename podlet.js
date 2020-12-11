@@ -41,6 +41,9 @@ app.get(`${basePath}${podlet.proxy({ target: "/api", name: "api" })}`, (req, res
   res.status(200).send({ resultat: "flott resultat med basepath" });
 });
 
+podlet.proxy({ target: "https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/auth", name: "authapi" });
+podlet.proxy({ target: "https://github.com/status", name: "openapi" });
+
 app.get(`${basePath}${podlet.content()}`, (req, res) => {
   res.status(200).podiumSend(`<div id="${podletName}"></div>`);
 });
