@@ -42,3 +42,5 @@ spec:
     outbound:
       external:
         - host: api.amplitude.com
+        - host: innloggingsstatus.dev.nav.no
+        - host: github.com
