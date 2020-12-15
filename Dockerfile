@@ -9,7 +9,8 @@ COPY package*.json /usr/src/app/
 RUN npm ci
 
 COPY . /usr/src/app
-ENV NODE_ENV=production 
+ENV NODE_ENV=production
+ENV PUBLIC_URL=$BASE_PATH
 RUN npm run build
 
 FROM node:14-alpine AS runtime

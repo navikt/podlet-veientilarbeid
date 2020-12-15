@@ -74,6 +74,5 @@
   },
   "lint-staged": {
     "*.{js,jsx,json,md,ts,tsx}": "prettier --write"
-  },
-  "homepage": "/arbeid/podlet-veientilarbeid"
+  }
 }
