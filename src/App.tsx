@@ -3,22 +3,60 @@ import "./App.css";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
 import useInterval from "./hooks/useInterval";
+import useSWR from "swr";
+import { authUrl } from "./urls";
+
+const fetcher = async (url: string) => {
+  const response = await fetch(url, { method: "GET", credentials: "include" });
+  const data = await response.json();
+  return data;
+};
+
+interface AuthType {
+  authenticated: boolean;
+  name: string;
+  securityLevel: "3" | "4";
+}
+
+function getAuthInfo(auth: AuthType | undefined) {
+  if (!auth) return "ikke logget inn";
+  switch (auth.securityLevel) {
+    case "3":
+      return "litt sikkert logget inn";
+    case "4":
+      return "helt sikkert logget inn";
+    default:
+      return "logget inn på en merkelig måte";
+  }
+}
 
 function App() {
+  const { data } = useSWR<AuthType>(authUrl, fetcher);
+
+  return (
+    <div className="podlet-veientilarbeid">
+      <Panel border>
+        <Greeting authInfo={getAuthInfo(data)} />
+      </Panel>
+    </div>
+  );
+}
+
+function Greeting({ authInfo }: { authInfo: string }) {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
   useInterval(() => {
     setCurrentTime(new Date());
   }, 1000);
 
   return (
-    <div className="podlet-veientilarbeid">
-      <Panel border>
-        <Systemtittel>{getGreeting(currentTime)}</Systemtittel>
-        <Normaltekst>
-          Klokken er nå <Clock currentTime={currentTime} />
-        </Normaltekst>
-      </Panel>
-    </div>
+    <>
+      <Systemtittel>
+        {getGreeting(currentTime)}! Du er {authInfo}.
+      </Systemtittel>
+      <Normaltekst>
+        Klokken er nå <Clock currentTime={currentTime} />
+      </Normaltekst>
+    </>
   );
 }
 
