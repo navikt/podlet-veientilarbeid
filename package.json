@@ -40,8 +40,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
-    "test-ci": "CI=true craco test",
+    "test": "npm run lint && craco test",
+    "test-ci": "npm run lint && CI=true craco test",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "typeCheck": "tsc",
     "lint": "eslint --ext .tsx,.js,.ts,.jsx src",
