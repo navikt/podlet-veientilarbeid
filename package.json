@@ -30,6 +30,7 @@
     "@types/node": "14.14.14",
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
+    "eslint-plugin-jsx-a11y": "6.4.1",
     "husky": "4.3.6",
     "lint-staged": "10.5.3",
     "prettier": "2.2.1",
@@ -43,12 +44,17 @@
     "test-ci": "CI=true craco test",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "typeCheck": "tsc",
+    "lint": "eslint --ext .tsx,.js,.ts,.jsx src",
     "podlet": "node podlet.js"
   },
   "eslintConfig": {
+    "plugins": [
+      "jsx-a11y"
+    ],
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:jsx-a11y/recommended"
     ]
   },
   "browserslist": {
