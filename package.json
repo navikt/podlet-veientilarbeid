@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "6.0.0",
+    "@metrics/prometheus-consumer": "3.0.1",
     "@podium/podlet": "4.4.14",
     "classnames": "2.2.6",
     "craco-less": "1.17.1",
@@ -19,6 +20,7 @@
     "nav-frontend-paneler-style": "0.3.31",
     "nav-frontend-typografi": "2.0.37",
     "nav-frontend-typografi-style": "1.0.31",
+    "prom-client": "13.0.0",
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
