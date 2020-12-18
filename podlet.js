@@ -32,8 +32,8 @@ assets.entrypoints.forEach((element, index) => {
 });
 
 // Set up prometheus client with podium metrics
-promClient.collectDefaultMetrics();
 const metricsConsumer = new PrometheusConsumer({ client: promClient });
+promClient.collectDefaultMetrics({ register: metricsConsumer.registry });
 metricsConsumer.on("error", (err) => console.error(err));
 podlet.metrics.pipe(metricsConsumer);
 
