@@ -35,9 +35,11 @@ function App() {
 
   return (
     <div className="podlet-veientilarbeid">
-      <Panel border>
-        <Greeting authInfo={getAuthInfo(data)} />
-      </Panel>
+      <div className="limit">
+        <Panel border>
+          <Greeting authInfo={getAuthInfo(data)} />
+        </Panel>
+      </div>
     </div>
   );
 }
