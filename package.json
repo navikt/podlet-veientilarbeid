@@ -11,7 +11,7 @@
     "express": "4.17.1",
     "less": "3.13.0",
     "msw": "0.24.2",
-    "nav-frontend-chevron": "1.0.22",
+    "nav-frontend-chevron": "1.0.24",
     "nav-frontend-chevron-style": "0.3.10",
     "nav-frontend-core": "5.0.10",
     "nav-frontend-lenkepanel": "1.0.63",
