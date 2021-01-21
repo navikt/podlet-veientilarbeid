@@ -23,6 +23,10 @@ const podlet = new Podlet({
   logger: console,
 });
 
+podlet.defaults({
+  authlevel: "N/A",
+});
+
 assets.entrypoints.forEach((element, index) => {
   if (element.indexOf(".css") !== -1) {
     podlet.css({ value: `/${element}` });
@@ -51,10 +55,10 @@ app.get(`${basePath}${podlet.proxy({ target: "/api", name: "api" })}`, (req, res
 });
 
 podlet.proxy({ target: "https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/auth", name: "authapi" });
-podlet.proxy({ target: "https://github.com/status", name: "openapi" });
 
 app.get(`${basePath}${podlet.content()}`, (req, res) => {
-  res.status(200).podiumSend(`<div id="${podletName}"></div>`);
+  const { authlevel } = res.locals.podium.context;
+  res.status(200).podiumSend(`<div id="${podletName}" data-authlevel="${authlevel}"></div>`);
 });
 
 app.get(`${basePath}${podlet.fallback()}`, (req, res) => {

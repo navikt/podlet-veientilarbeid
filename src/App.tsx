@@ -32,7 +32,7 @@ function getAuthInfo(auth: AuthType | undefined) {
   }
 }
 
-function App() {
+function App({ authlevel }: { authlevel: string | null }) {
   const { data } = useSWR<AuthType>(authUrl, fetcher);
 
   return (
@@ -40,6 +40,7 @@ function App() {
       <div className="limit">
         <Panel border>
           <Greeting authInfo={getAuthInfo(data)} />
+          <span>Nivå fra layout-server: {authlevel}</span>
         </Panel>
       </div>
     </div>

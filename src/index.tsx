@@ -9,11 +9,16 @@ if (process.env.NODE_ENV === "development") {
   worker.start();
 }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <SWRConfig value={{ shouldRetryOnError: false }}>
-      <App />
-    </SWRConfig>
-  </React.StrictMode>,
-  document.getElementById("podlet-veientilarbeid")
-);
+const element = document.getElementById("podlet-veientilarbeid");
+if (element) {
+  const authlevel = element.getAttribute("data-authlevel");
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <SWRConfig value={{ shouldRetryOnError: false }}>
+        <App authlevel={authlevel} />
+      </SWRConfig>
+    </React.StrictMode>,
+    element
+  );
+}
