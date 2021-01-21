@@ -25,8 +25,10 @@ function getAuthInfo(auth: AuthType | undefined) {
       return "litt sikkert logget inn";
     case "4":
       return "helt sikkert logget inn";
+    case undefined:
+      return "egentlig ikke logget inn";
     default:
-      return "logget inn på en merkelig måte";
+      return `logget inn på en merkelig måte (${auth.securityLevel})`;
   }
 }
 
