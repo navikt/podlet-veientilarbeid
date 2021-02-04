@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "6.0.0",
+    "@craco/craco": "6.1.0",
     "@metrics/prometheus-consumer": "3.0.1",
     "@podium/podlet": "4.4.14",
     "classnames": "2.2.6",
     "craco-less": "1.17.1",
     "express": "4.17.1",
     "less": "3.13.1",
-    "msw": "0.25.0",
+    "msw": "0.26.1",
     "nav-frontend-chevron": "1.0.24",
     "nav-frontend-chevron-style": "1.0.2",
     "nav-frontend-core": "5.0.11",
@@ -20,11 +20,11 @@
     "nav-frontend-paneler-style": "0.3.33",
     "nav-frontend-typografi": "2.0.39",
     "nav-frontend-typografi-style": "1.0.33",
-    "prom-client": "13.0.0",
+    "prom-client": "13.1.0",
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "swr": "0.4.0"
+    "swr": "0.4.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.11.9",
