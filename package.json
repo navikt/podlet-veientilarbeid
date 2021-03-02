@@ -44,6 +44,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "bump": "npx npm-check-updates --target minor -u && npm i",
     "test": "npm run lint && craco test",
     "test-ci": "npm run lint && CI=true craco test",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
