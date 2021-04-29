@@ -40,7 +40,7 @@ function App({ authlevel }: { authlevel: string | null }) {
       <div className="limit">
         <Panel border>
           <Greeting authInfo={getAuthInfo(data)} />
-          <span>Nivå fra layout-server: {authlevel}</span>
+          <span>Nivå fra min-side: {authlevel}</span>
         </Panel>
       </div>
     </div>
