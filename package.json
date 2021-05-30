@@ -5,7 +5,7 @@
   "dependencies": {
     "@craco/craco": "6.1.2",
     "@metrics/prometheus-consumer": "3.0.1",
-    "@podium/podlet": "4.4.22",
+    "@podium/podlet": "4.4.23",
     "classnames": "2.3.1",
     "craco-less": "1.17.1",
     "express": "4.17.1",
