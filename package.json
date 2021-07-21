@@ -7,7 +7,7 @@
     "@metrics/prometheus-consumer": "3.0.1",
     "@podium/podlet": "4.4.23",
     "classnames": "2.3.1",
-    "craco-less": "1.17.1",
+    "craco-less": "1.18.0",
     "express": "4.17.1",
     "less": "3.13.1",
     "nav-frontend-chevron": "1.0.28",
